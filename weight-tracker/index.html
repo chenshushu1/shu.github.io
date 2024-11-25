@@ -6,7 +6,7 @@
     <title>瘦身加油站</title>
     <link rel="manifest" href="/shu.github.io/manifest.json">
     <meta name="theme-color" content="#ff6b6b">
-    <link rel="apple-touch-icon" href="/chenshushu1.github.io/images/icon-192.png">
+    <link rel="apple-touch-icon" href="/shu.github.io/images/icon-192.png">
     <link rel="stylesheet" href="/shu.github.io/styles.css">
     
     <!-- iOS 特定设置 -->
@@ -15,9 +15,9 @@
     <meta name="apple-mobile-web-app-title" content="瘦身加油站">
     
     <!-- iOS 图标 -->
-    <link rel="apple-touch-icon" sizes="152x152" href="/chenshushu1.github.io/images/icon-152.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="/chenshushu1.github.io/images/icon-167.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/chenshushu1.github.io/images/icon-180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/shu.github.io/images/icon-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/shu.github.io/images/icon-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/shu.github.io/images/icon-180.png">
 </head>
 <body>
     <div class="app">
@@ -87,12 +87,13 @@
 
     <script src="/shu.github.io/app.js"></script>
     <script>
-    // 注册 Service Worker
-    <script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/shu.github.io/sw.js');  // 修改这里
-    }
-</script>
-</script>
+        // 注册 Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/shu.github.io/sw.js');
+        }
+        
+        // 初始化应用
+        const app = new WeightTracker();
+    </script>
 </body>
 </html>
