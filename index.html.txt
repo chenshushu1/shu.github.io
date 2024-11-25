@@ -89,7 +89,6 @@
 <script>
     // 注册 Service Worker
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/chenshushu1.github.io/sw.js');  // 修改为完整路径
-    }
+        navigator.serviceWorker.register('/chenshushu1.github.io/sw.js')
 </script>
 </body>
