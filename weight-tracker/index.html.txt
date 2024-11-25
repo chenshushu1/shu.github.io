@@ -89,8 +89,8 @@
     <script>
         // 注册 Service Worker
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/chenshushu1.github.io/sw.js');  // 这里已经修改为正确的路径
-        }
+    navigator.serviceWorker.register('/chenshushu1.github.io/sw.js');  // 使用完整路径
+}
         
         // 初始化应用
         const app = new WeightTracker();
