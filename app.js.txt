@@ -1,0 +1,58 @@
+class WeightTracker {
+    constructor() {
+        this.initializeData();
+        this.setupAutoSave();
+    }
+
+    initializeData() {
+        // 从 localStorage 加载数据
+        const savedData = localStorage.getItem('weightData');
+        if (savedData) {
+            const data = JSON.parse(savedData);
+            this.weights = data.weights || [];
+            this.habits = data.habits || this.getDefaultHabits();
+            this.streak = data.streak || 0;
+            this.lastCheckIn = data.lastCheckIn || null;
+            this.targetWeight = data.targetWeight || null;
+            this.initialWeight = data.initialWeight || null;
+        } else {
+            // 首次使用，初始化默认数据
+            this.weights = [];
+            this.habits = this.getDefaultHabits();
+            this.streak = 0;
+            this.lastCheckIn = null;
+            this.targetWeight = null;
+            this.initialWeight = null;
+            
+            // 显示首次使用引导
+            this.showInitialSetup();
+        }
+    }
+
+    getDefaultHabits() {
+        return {
+            water: { count: 0, target: 8, unit: '杯' },
+            exercise: { count: 0, target: 30, unit: '分钟' },
+            food: { completed: false },
+            poop: { completed: false }
+        };
+    }
+
+    setupAutoSave() {
+        // 定期自动保存数据
+        setInterval(() => this.saveData(), 30000); // 每30秒保存一次
+    }
+
+    saveData() {
+        const data = {
+            weights: this.weights,
+            habits: this.habits,
+            streak: this.streak,
+            lastCheckIn: this.lastCheckIn,
+            targetWeight: this.targetWeight,
+            initialWeight: this.initialWeight
+        };
+        
+        localStorage.setItem('weightData', JSON.stringify(data));
+    }
+} 

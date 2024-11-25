@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>瘦身加油站</title>
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#ff6b6b">
+    <link rel="apple-touch-icon" href="images/icon-192.png">
+    <link rel="stylesheet" href="./styles.css">
+    
+    <!-- iOS 特定设置 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="瘦身加油站">
+    
+    <!-- iOS 图标 -->
+    <link rel="apple-touch-icon" sizes="152x152" href="images/icon-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="images/icon-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icon-180.png">
+</head>
+<body>
+    <div class="app">
+        <!-- 体重数据卡片 -->
+        <div class="weight-card card">
+            <div class="weight-grid">
+                <div class="weight-item">
+                    <span class="label">初始体重</span>
+                    <span class="value" id="initialWeight">-- kg</span>
+                </div>
+                <div class="weight-item current">
+                    <span class="label">当前体重</span>
+                    <span class="value highlight" id="currentWeight">-- kg</span>
+                    <span class="change" id="weightChange">-0.0 kg</span>
+                </div>
+                <div class="weight-item">
+                    <span class="label">目标体重</span>
+                    <span class="value" id="targetWeight">-- kg</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 一周体重趋势图 -->
+        <div class="chart-card card">
+            <h2>本周变化 <span class="subtitle">每一点进步都值得开心 😊</span></h2>
+            <div class="weight-chart" id="weeklyChart">
+                <!-- 柱状图将通过JS动态生成 -->
+            </div>
+        </div>
+
+        <!-- 每日激励 -->
+        <div class="motivation-card card">
+            <div class="motivation-icon">🌟</div>
+            <div class="motivation" id="motivation"></div>
+            <div class="tip" id="tip"></div>
+        </div>
+
+        <!-- 健康习惯打卡 -->
+        <div class="habits-card card">
+            <h2>今日打卡</h2>
+            <div class="habits-grid">
+                <div class="habit-item" onclick="toggleHabit('water')">
+                    <div class="habit-icon">💧</div>
+                    <div class="habit-name">喝水</div>
+                    <div class="habit-progress" id="waterProgress">0/8</div>
+                    <div class="habit-status" id="waterStatus">未完成</div>
+                </div>
+                <div class="habit-item" onclick="toggleHabit('food')">
+                    <div class="habit-icon">🥗</div>
+                    <div class="habit-name">健康饮食</div>
+                    <div class="habit-status" id="foodStatus">未完成</div>
+                </div>
+                <div class="habit-item" onclick="toggleHabit('poop')">
+                    <div class="habit-icon">💩</div>
+                    <div class="habit-name">排便记录</div>
+                    <div class="habit-status" id="poopStatus">未完成</div>
+                </div>
+                <div class="habit-item" onclick="toggleHabit('exercise')">
+                    <div class="habit-icon">🏃‍♀️</div>
+                    <div class="habit-name">运动</div>
+                    <div class="habit-progress" id="exerciseProgress">0/30分钟</div>
+                    <div class="habit-status" id="exerciseStatus">未完成</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/chenshushu1.github.io/app.js"></script>
+<script>
+    // 注册 Service Worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/chenshushu1.github.io/sw.js');  // 修改为完整路径
+    }
+</script>
+</body>
