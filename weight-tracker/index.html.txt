@@ -87,13 +87,10 @@
 
     <script src="/chenshushu1.github.io/app.js"></script>
     <script>
-        // 注册 Service Worker
-        if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/chenshushu1.github.io/sw.js');  // 使用完整路径
-}
-        
-        // 初始化应用
-        const app = new WeightTracker();
-    </script>
+    // 注册 Service Worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/shu.github.io/sw.js');  // 修改为正确的路径
+    }
+</script>
 </body>
 </html>
